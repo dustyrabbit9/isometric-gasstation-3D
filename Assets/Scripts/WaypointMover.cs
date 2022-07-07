@@ -12,6 +12,10 @@ public class WaypointMover : MonoBehaviour
 
     [SerializeField] private float distanceThreshold = 1f;
 
+    [SerializeField] private int carPlate;
+
+    [SerializeField] public bool openGate = false;
+
     private Transform currentWaypoint;
 
     // Start is called before the first frame update

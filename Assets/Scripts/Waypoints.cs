@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Waypoints : MonoBehaviour
 {
+    [SerializeField] private Transform nextWaypointL;
+    [SerializeField] private Transform nextWaypointR;
+
     private void OnDrawGizmos(){
         foreach (Transform t in transform)
         {
@@ -25,7 +30,10 @@ public class Waypoints : MonoBehaviour
         if (currentWaypoint.GetSiblingIndex() < transform.childCount - 1){
             return transform.GetChild(currentWaypoint.GetSiblingIndex() + 1);
         } else {
-            return transform.GetChild(0);
+            if (currentWaypoint.openGate == true){
+                return nextWaypointL.transform.GetChild(0);
+            }
+            
         }
         return null;
     }
